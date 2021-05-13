@@ -91,7 +91,7 @@
         </visual>
 
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="-1.45 -0.95 0" rpy="1.5708 0 1.5708"/>
             <geometry>
                 <mesh filename="package://fanuc_description/fanuc_meshes/collision/link_5.stl"/>
             </geometry>
