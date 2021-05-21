@@ -24,38 +24,38 @@ T06 = T01*T16;
 %%estrazione dei dati dalle matrici di trasformazione
 
 %T56
-TRASL56 = tform2trvec(TRASL56);
-ROT56 = tform2rotm(TRASL56);
+TRASL56 = tform2trvec(T56);
+ROT56 = tform2rotm(T56);
 RPY56 = rotm2eul(ROT56, 'XYZ');
 AXANG56 = rotm2axang(ROT56);
 
 %T46
-TRASL46 = tform2trvec(TRASL46);
-ROT46 = tform2rotm(TRASL46);
+TRASL46 = tform2trvec(T46);
+ROT46 = tform2rotm(T46);
 RPY46 = rotm2eul(ROT46, 'XYZ');
 AXANG46 = rotm2axang(ROT46);
 
 %T36
-TRASL36 = tform2trvec(TRASL36);
-ROT36 = tform2rotm(TRASL36);
+TRASL36 = tform2trvec(T36);
+ROT36 = tform2rotm(T36);
 RPY36 = rotm2eul(ROT36, 'XYZ');
 AXANG36 = rotm2axang(ROT36);
 
 %T26
-TRASL26 = tform2trvec(TRASL26);
-ROT26 = tform2rotm(TRASL26);
+TRASL26 = tform2trvec(T26);
+ROT26 = tform2rotm(T26);
 RPY26 = rotm2eul(ROT26, 'XYZ');
 AXANG26 = rotm2axang(ROT26);
 
 %T16
-TRASL16 = tform2trvec(TRASL16);
-ROT16 = tform2rotm(TRASL16);
+TRASL16 = tform2trvec(T16);
+ROT16 = tform2rotm(T16);
 RPY16 = rotm2eul(ROT16, 'XYZ');
 AXANG16 = rotm2axang(ROT16);
 
 %T06
-TRASL06 = tform2trvec(TRASL06);
-ROT06 = tform2rotm(TRASL06);
+TRASL06 = tform2trvec(T06);
+ROT06 = tform2rotm(T06);
 RPY06 = rotm2eul(ROT06, 'XYZ');
 AXANG06 = rotm2axang(ROT06);
 
