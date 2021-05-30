@@ -1,6 +1,5 @@
 #include <ros/ros.h>
 #include <client_server_msgs/fk_service_msg.h>
-
 #include <moveit/robot_model_loader/robot_model_loader.h>
 #include <moveit/robot_state/robot_state.h>
 #include <tf_conversions/tf_eigen.h>
@@ -32,7 +31,7 @@ bool fk(client_server_msgs::fk_service_msg::Request &request, client_server_msgs
     response.translation.y = trasl.getY();
     response.translation.z = trasl.getZ();
 
-    ROS_INFO_STREAM("Forward kinematics for the flange" << response);
+    ROS_INFO_STREAM("Forward kinematics for " << request.target << "\n" << response);
     return true;
 }
 
