@@ -1,23 +1,24 @@
 #include <ros/ros.h>
-#include <roscpp_tutorials/TwoInts.h>
+#include <client_server_msgs/fk_service_msg.h>
 #include <cstdlib>
 
 
 int main(int argc, char **argv) {
-ros::init(argc, argv, "add_two_ints_client");
+ros::init(argc, argv, "forward_kinematics_client");
 if (argc != 3) {
-    ROS_INFO("usage: add_two_ints_client X Y");
-    return 1;
+    ROS_INFO("Client started");
 }
+
 ros::NodeHandle nh;
-ros::ServiceClient client = nh.serviceClient<roscpp_tutorials::TwoInts>("add_two_ints");
-roscpp_tutorials::TwoInts service;
-service.request.a = atoi(argv[1]);
-service.request.b = atoi(argv[2]);
+ros::ServiceClient client = nh.serviceClient<client_server_msgs::fk_service_msg>("forward_kinematics");
+
+client_server_msgs::fk_service_msg service;
+service.request.target = "flange";
+
 if (client.call(service)) {
-    ROS_INFO("Sum: %ld", (long int)service.response.sum);
+    ROS_INFO_STREAM("risposta:" << service.response);
 }else {
-    ROS_ERROR("Failed to call service add_two_ints");
+    ROS_ERROR("Failed to call service forward_kinematics");
     return 1;
     }
 

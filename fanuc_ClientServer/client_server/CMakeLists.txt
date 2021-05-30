@@ -7,9 +7,13 @@ project(client_server)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED
+find_package(catkin REQUIRED COMPONENTS
     roscpp
+    tf
     client_server_msgs
+    moveit_ros_planning_interface
+    eigen_conversions
+    tf_conversions
     )
 
 ## System dependencies are found with CMake's conventions
@@ -114,10 +118,13 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+
 include_directories(
-# include
- ${catkin_INCLUDE_DIRS}
-)
+    SYSTEM
+    ${EIGEN3_INCLUDE_DIRS} 
+    ${catkin_INCLUDE_DIRS}
+    
+    )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -134,6 +141,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/client_server_node.cpp)
 add_executable(server_node src/server.cpp)
+add_executable(client_node src/client.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -141,6 +149,10 @@ add_executable(server_node src/server.cpp)
 # set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
 target_link_libraries(
     server_node
+    ${catkin_LIBRARIES}
+)
+target_link_libraries(
+    client_node
     ${catkin_LIBRARIES}
 )
 
